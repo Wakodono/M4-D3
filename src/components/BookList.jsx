@@ -13,13 +13,15 @@ class BookList extends React.Component {
         <Container>
             <Row>
                 <Col>
-                    <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>Search</Form.Label>
-                        <Form.Control 
-                            type="text" 
-                            placeholder="" 
-                        />
-                    </Form.Group>
+                     <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Search</Form.Label>
+                            <Form.Control
+                                type="text"
+                                placeholder="Search"
+                                value={this.state.searchQuery}
+                                onChange={e => this.setState({ searchQuery: e.target.value })}
+                            />
+                        </Form.Group>
                 </Col>
             </Row>
 
