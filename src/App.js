@@ -1,11 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import WarningSign from './components/WarningSign';
-import MyBadge from './components/MyBadge';
-import SingleBook from './components/SingleBook';
 import historyBooks from './components/historyBooks.json'
 import BookList from './components/BookList'
+import MyFooter from './components/MyFooter'
+import MyJumbotron from './components/Welcome'
 
 
 function App() {
@@ -13,10 +12,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-            <WarningSign text = "Look out below!!" />
-            <MyBadge text = "BADGE" color = "Light" />
-            <SingleBook book={historyBooks[0]} />
+            {/* < /> */}
+            <MyJumbotron />
             <BookList books={historyBooks} />
+            <MyFooter />
         </div>
       </header>
     </div>
