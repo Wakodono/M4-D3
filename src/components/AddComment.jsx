@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Form, Button } from 'react-bootstrap'
 
 const AddComment = () => {
@@ -15,6 +15,7 @@ const [comment, setComment] = useState({
     elementId: null
 })
 
+
 //  componentDidUpdate(prevProps) {
 //         if (prevProps.asin !== this.props.asin) {
 //             this.setState({
@@ -25,6 +26,10 @@ const [comment, setComment] = useState({
 //             })
 //         }
 //     }
+
+useEffect( () => {
+    console.log('The book just changed')
+}, [])
 
 const sendComment = async (e) => {
     e.preventDefault()
@@ -51,11 +56,11 @@ const sendComment = async (e) => {
         return (
             <div>
                 <Form>
-                    <Form.Group>
+                    <Form.Group onSubmit={sendComment}>
                         <Form.Label>Comment</Form.Label>
                         <Form.Control type="text" placeholder="write your comment here" />
                         value={comment.comment}
-                        onChange={e => this.setState({
+                        onChange={e => setComment({
                             comment: {
                                 ...comment,
                                 comment: e.target.value
@@ -65,7 +70,7 @@ const sendComment = async (e) => {
                     <Form.Group >
                         <Form.Label>Rating</Form.Label>
                         <Form.Control as="select" value={comment.rate} />
-                        onChange={e => this.setState({
+                        onChange={e => setComment({
                             comment: {
                                 ...comment,
                                 rate: e.target.value
