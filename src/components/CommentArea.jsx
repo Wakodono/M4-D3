@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class CommentArea extends Component {
+class CommentArea extends Component {
     state = {}
     render() {
         return (
@@ -10,3 +10,5 @@ export default class CommentArea extends Component {
         )
     }
 }
+
+export default CommentArea
