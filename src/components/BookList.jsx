@@ -5,12 +5,12 @@ import CommentArea from './CommentArea'
 import {Col, Container, Row, Form} from 'react-bootstrap'
 
 
-const BookList = () => {
+const BookList = ({books}) => {
     // state = {
     //     searchQuery: ''
     // }
     const [search, setSearch] = useState({
-        searchQuery: ''
+        searchQuery: '',
         selectedBook: null
     })
 
@@ -33,11 +33,11 @@ const BookList = () => {
                         </Row>
                         <Row>
                             {
-                                this.props.books.filter(b => b.title.toLowerCase().includes(search.searchQuery)).map(b => (
+                                books.filter(b => b.title.toLowerCase().includes(search.searchQuery)).map(b => (
                                     <Col xs = {3} key = {b.asin} >
                                         <SingleBook
                                             book = {b}
-                                            selectedBook = {selectedBook}
+                                            selectedBook = {search.selectedBook}
                                             changeSelectedBook = {asin => setSearch({
                                                 selectedBook: asin
                                             })} />

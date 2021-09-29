@@ -23,7 +23,7 @@ class CommentArea extends Component {
             try {
                 let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.asin, {
                     headers: {
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMDkxOTJkNTI2MjAwMTViNmRjZjgiLCJpYXQiOjE2MzA0NDAzMDksImV4cCI6MTYzMTY0OTkwOX0.KqulqOdiYC_re6ovkrCEWwsaMDfG-PftJEqT_97HdZ8'
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMDkxOTJkNTI2MjAwMTViNmRjZjgiLCJpYXQiOjE2MzI5MjMxNjIsImV4cCI6MTYzNDEzMjc2Mn0.ItqFxqg5226SLnw2cQ1lVjz7idZ72eCbXpjTyAwcPB0'
                     }
                 })
                 console.log(response)
