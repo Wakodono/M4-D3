@@ -2,13 +2,6 @@ import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 
 const AddComment = () => {
-  // state = {
-  //     comment: {
-  //         comment: '',
-  //         rate: 1,
-  //         elementId: null
-  //     }
-  // }
   const [comment, setComment] = useState({
     comment: "",
     rate: 1,
@@ -61,15 +54,18 @@ const AddComment = () => {
       <Form>
         <Form.Group onSubmit={sendComment}>
           <Form.Label>Comment</Form.Label>
-          <Form.Control type="text" placeholder="write your comment here"
-          value={comment.comment}
-          onChange={(e) => setComment({
-              comment: {
-                ...comment,
-                comment: e.target.value,
-              },
-            })
-          } />
+          <Form.Control
+            type="text"
+            placeholder="write your comment here"
+            value={comment.comment}
+            onChange={(e) =>
+              setComment({
+                ...comment, //rate, elementId and comment
+
+                comment: e.target.value, //you are overwritting comment with the value
+              })
+            }
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Rating</Form.Label>
@@ -78,19 +74,25 @@ const AddComment = () => {
             value={comment.rate}
             onChange={(e) =>
               setComment({
-                comment: {
                   ...comment,
                   rate: e.target.value,
-                },
               })
+
+              // Here you accidentally did above steps inside comment
+              // you are creating an object(comment.comment.comment) as the comment (it should be a string) 
+              // setComment({
+              //   comment: {
+              //     ...comment,
+              //     rate: e.target.value,
+              //   },
+              // })
             }
           >
-
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </Form.Control>
         </Form.Group>
       </Form>

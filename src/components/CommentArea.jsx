@@ -21,7 +21,7 @@ class CommentArea extends Component {
             })
             
             try {
-                let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.asin, {
+                let response = await fetch('https://striveschool-api.herokuapp.com/api/comments/' + this.props.asin, { //this.props.selectedBook.asin
                     headers: {
                         Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTFkMDkxOTJkNTI2MjAwMTViNmRjZjgiLCJpYXQiOjE2MzI5MjMxNjIsImV4cCI6MTYzNDEzMjc2Mn0.ItqFxqg5226SLnw2cQ1lVjz7idZ72eCbXpjTyAwcPB0'
                     }
@@ -45,6 +45,7 @@ class CommentArea extends Component {
     render() {
         return (
             <div>
+                {console.log(this.props.selectedBook, 'From CommentArea')}
                 {this.state.isLoading && <Loading />}
                 {this.state.isError && <Error />}
                 <AddComment asin={this.props.asin} />

@@ -12,9 +12,13 @@ class SingleBook extends React.Component {
         return (
             <Card
                 className="mt-4"
-                onClick={() => this.setState({ selected: !this.state.selected })}
+                onClick={() => {
+                    this.setState({ selected: !this.state.selected })
+                    this.props.setBookSelected(this.props.book)
+                }}
                 style={{ border: this.state.selected ? '3px solid red' : 'none' }}
             >
+                
                 <Card.Img variant="top" src={this.props.book.img} />
                 {/* <Card.Body>
                     <Card.Title style={{ color: 'black' }}>{this.props.book.title}</Card.Title>
